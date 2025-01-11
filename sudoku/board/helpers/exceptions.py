@@ -3,3 +3,6 @@ class InvalidLineException(BaseException):
 
 class InvalidColumnException(BaseException):
     pass
+
+class InvalidValueException(BaseException):
+    pass
