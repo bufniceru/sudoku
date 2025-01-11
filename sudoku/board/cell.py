@@ -81,10 +81,7 @@ class Cell:
         return f"{self.value}" if self.value is not None else f"0"
 
     def __call__(self):
-        if self.value is None:
-            return 0
-        else:
-            return self.value()
+        return self.value()
 
     def __eq__(self, other):
         return (self.value == other.value) and (self.coordinates == other.coordinates)

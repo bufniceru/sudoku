@@ -12,6 +12,7 @@ class TestValue:
         assert hasattr(sut, 'value') is True
         assert sut.value is None
         assert f'{sut}' == '0'
+        assert sut() == 0
 
     def test_value_constructor_int(self):
 
@@ -20,6 +21,7 @@ class TestValue:
         assert hasattr(sut, 'value') is True
         assert sut.value == 5
         assert f'{sut}' == '5'
+        assert sut() == 5
 
     def test_value_constructor_str(self):
 
@@ -28,6 +30,7 @@ class TestValue:
         assert hasattr(sut, 'value') is True
         assert sut.value == 5
         assert f'{sut}' == '5'
+        assert sut() == 5
 
     def test_value_constructor_int_1(self):
 
@@ -36,6 +39,7 @@ class TestValue:
         assert hasattr(sut, 'value') is True
         assert sut.value == 1
         assert f'{sut}' == '1'
+        assert sut() == 1
 
     def test_value_constructor_int_9(self):
 
@@ -44,6 +48,7 @@ class TestValue:
         assert hasattr(sut, 'value') is True
         assert sut.value == 9
         assert f'{sut}' == '9'
+        assert sut() == 9
 
     def test_value_constructor_int_0(self):
 
@@ -54,6 +59,7 @@ class TestValue:
             assert hasattr(sut, 'value') is True
             assert sut.value is None
             assert f'{sut}' == '0'
+            assert sut() == 0
 
     def test_value_constructor_int_10(self):
 
@@ -64,6 +70,7 @@ class TestValue:
             assert hasattr(sut, 'value') is True
             assert sut.value is None
             assert f'{sut}' == '0'
+            assert sut() == 0
 
     def test_value_constructor_str_1(self):
 
@@ -72,6 +79,7 @@ class TestValue:
         assert hasattr(sut, 'value') is True
         assert sut.value == 1
         assert f'{sut}' == '1'
+        assert sut() == 1
 
     def test_value_constructor_str_9(self):
 
@@ -80,6 +88,7 @@ class TestValue:
         assert hasattr(sut, 'value') is True
         assert sut.value == 9
         assert f'{sut}' == '9'
+        assert sut() == 9
 
     def test_value_constructor_str_0(self):
 
@@ -90,6 +99,7 @@ class TestValue:
             assert hasattr(sut, 'value') is True
             assert sut.value is None
             assert f'{sut}' == '0'
+            assert sut() == 0
 
     def test_value_constructor_str_10(self):
 
@@ -100,6 +110,7 @@ class TestValue:
             assert hasattr(sut, 'value') is True
             assert sut.value is None
             assert f'{sut}' == '0'
+            assert sut() == 0
 
     def test_value_from_int(self):
 
@@ -107,11 +118,13 @@ class TestValue:
 
         assert hasattr(sut, 'value') is True
         assert sut.value is None
+        assert sut() == 0
 
         sut.from_int(5)
 
         assert sut.value == 5
         assert f'{sut}' == '5'
+        assert sut() == 5
 
     def test_value_from_str(self):
 
@@ -119,11 +132,13 @@ class TestValue:
 
         assert hasattr(sut, 'value') is True
         assert sut.value is None
+        assert sut() == 0
 
         sut.from_str('5')
 
         assert sut.value == 5
         assert f'{sut}' == '5'
+        assert sut() == 5
 
     def test_value_for_equality(self):
 
