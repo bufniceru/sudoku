@@ -1,3 +1,6 @@
+import pytest
+
+from sudoku.board.helpers.exceptions import InvalidValueException
 from sudoku.board.helpers.value import Value
 
 
@@ -44,19 +47,23 @@ class TestValue:
 
     def test_value_constructor_int_0(self):
 
-        sut = Value(0)
+        with pytest.raises(InvalidValueException):
 
-        assert hasattr(sut, 'value') is True
-        assert sut.value is None
-        assert f'{sut}' == '0'
+            sut = Value(0)
+
+            assert hasattr(sut, 'value') is True
+            assert sut.value is None
+            assert f'{sut}' == '0'
 
     def test_value_constructor_int_10(self):
 
-        sut = Value(10)
+        with pytest.raises(InvalidValueException):
 
-        assert hasattr(sut, 'value') is True
-        assert sut.value is None
-        assert f'{sut}' == '0'
+            sut = Value(10)
+
+            assert hasattr(sut, 'value') is True
+            assert sut.value is None
+            assert f'{sut}' == '0'
 
     def test_value_constructor_str_1(self):
 
@@ -76,19 +83,23 @@ class TestValue:
 
     def test_value_constructor_str_0(self):
 
-        sut = Value('0')
+        with pytest.raises(InvalidValueException):
 
-        assert hasattr(sut, 'value') is True
-        assert sut.value is None
-        assert f'{sut}' == '0'
+            sut = Value('0')
+
+            assert hasattr(sut, 'value') is True
+            assert sut.value is None
+            assert f'{sut}' == '0'
 
     def test_value_constructor_str_10(self):
 
-        sut = Value('10')
+        with pytest.raises(InvalidValueException):
 
-        assert hasattr(sut, 'value') is True
-        assert sut.value is None
-        assert f'{sut}' == '0'
+            sut = Value('10')
+
+            assert hasattr(sut, 'value') is True
+            assert sut.value is None
+            assert f'{sut}' == '0'
 
     def test_value_from_int(self):
 

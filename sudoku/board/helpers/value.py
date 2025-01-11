@@ -47,6 +47,7 @@ class Value:
             self.check(value)
         except InvalidValueException:
             ic("Invalid value")
+            raise InvalidValueException
         else:
             self._value.clear()
             self._value.extend(value.to_bytes(1, 'big', signed=False))
@@ -57,6 +58,7 @@ class Value:
             self.check(int(value))
         except InvalidValueException:
             ic("Invalid value")
+            raise InvalidValueException
         else:
             self._value.clear()
             self._value.extend(int(value) .to_bytes(1, 'big', signed=False))
