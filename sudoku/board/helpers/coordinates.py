@@ -20,17 +20,17 @@ class Coordinates:
     """
 
     @singledispatchmethod
-    def __init__(self):
+    def __init__(self) -> None:
         """Initialize with Void."""
 
     @__init__.register(type(None))
-    def _from_none(self, coordinates: type(None)):
+    def _from_none(self, coordinates: type(None)) -> None:
         """Initialize with None."""
         self._line = bytearray()
         self._column = bytearray()
 
     @__init__.register(tuple)
-    def _from_tuple(self, coordinates: tuple):
+    def _from_tuple(self, coordinates: tuple) -> None:
         """Initialize with tuple."""
         line, column = coordinates
         self._line = bytearray()
@@ -39,7 +39,7 @@ class Coordinates:
         self.column_from_int(column)
 
     @property
-    def line(self):
+    def line(self) -> int | None:
         """Return Line."""
         if len(self._line) == 0:
             return None
@@ -47,14 +47,14 @@ class Coordinates:
             return int.from_bytes(bytes(self._line), 'big', signed=False)
 
     @property
-    def column(self):
+    def column(self)  -> int | None:
         """return  Column"""
         if len(self._column) == 0:
             return None
         else:
             return int.from_bytes(bytes(self._column), 'big', signed=False)
 
-    def line_from_int(self, line: int | None = None):
+    def line_from_int(self, line: int | None = None) -> None:
         """Fill The Line from Int."""
         try:
             Coordinates.check_line(line)
@@ -63,7 +63,7 @@ class Coordinates:
         else:
             self._line.extend(line.to_bytes(1, 'big', signed=False))
 
-    def column_from_int(self, column: int = None):
+    def column_from_int(self, column: int = None) -> None:
         """Fill The Column from Int."""
         try:
             Coordinates.check_column(column)
@@ -73,33 +73,33 @@ class Coordinates:
             self._column.extend(column.to_bytes(1, 'big', signed=False))
 
     @property
-    def block_line_start(self):
+    def block_line_start(self) -> int:
         """Return Block Line start."""
         return ((self.line - 1) // 3) * 3
 
     @property
-    def block_line_finish(self):
+    def block_line_finish(self) -> int:
         """Return Block Line finish."""
         return self.block_line_start + 3
 
     @property
-    def block_column_start(self):
+    def block_column_start(self) -> int:
         """Return Block Column start."""
         return ((self.column - 1) // 3) * 3
 
     @property
-    def block_column_finish(self):
+    def block_column_finish(self) -> int:
         """Return Block Column Finish """
         return self.block_column_start + 3
 
     @staticmethod
-    def check_line(element):
+    def check_line(element) -> None:
         """Check the line for value."""
         if element not in ALL_POSSIBILITIES_SET:
             raise InvalidLineException()
 
     @staticmethod
-    def check_column(element):
+    def check_column(element) -> None:
         """Check the column for value."""
         if element not in ALL_POSSIBILITIES_SET:
             raise InvalidColumnException()

@@ -6,8 +6,8 @@ from sudoku.strategies.strategies import Strategies
 
 sudoku_grid = "..1.....2.2.....1.3...2.......3.1....5.....9....7.4.......8...3.1.....5.6.....4.."
 
-class TestNakedSingle:
-    def test_naked_single(self):
+class TestLineHiddenSingle:
+    def test_line_hidden_single(self):
 
         string_board = StringBoard(sudoku_grid)
 
@@ -31,6 +31,22 @@ class TestNakedSingle:
 
         prnt.full()
 
-        Strategies.NAKED_SINGLE.run(board_manager)
+        Strategies.LINE_HIDDEN_SINGLE.run(board_manager)
+
+        prnt.full()
+
+        Strategies.SIMPLE_ELIMINATION.run(board_manager)
+
+        prnt.full()
+
+        Strategies.LINE_HIDDEN_SINGLE.run(board_manager)
+
+        prnt.full()
+
+        Strategies.SIMPLE_ELIMINATION.run(board_manager)
+
+        prnt.full()
+
+        Strategies.LINE_HIDDEN_SINGLE.run(board_manager)
 
         prnt.full()

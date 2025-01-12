@@ -8,10 +8,10 @@ class StringBoard:
     This Class is an interface between a string representation of a Sudoku game
     and the Cells contained in the Board
     """
-    def __init__(self, string):
+    def __init__(self, string) -> None:
         self.string = string
 
-    def cell(self, line, column):
+    def cell(self, line, column) -> Cell:
         """Returns an empty Cell with the given Coordinates
         Both line and colum can have values from 1 to 9 (not 0 to 8)
         """
@@ -19,7 +19,7 @@ class StringBoard:
         return Cell(int(char) if char.isdigit() else 0, Coordinates((line, column)))
 
     @staticmethod
-    def index(line, column):
+    def index(line, column) -> int:
         """Translate from the cell coordinates to string index
         """
         return line * BOARD_DIMENSION + column
