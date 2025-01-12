@@ -3,6 +3,7 @@ from sudoku.board.helpers.coordinates import Coordinates
 
 class TestCoordinates:
     def test_coordinates_constructor_none(self):
+
         sut = Coordinates(None)
 
         assert hasattr(sut, 'line') is True

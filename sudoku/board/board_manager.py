@@ -24,8 +24,7 @@ class BoardManager(Board):
             return None
 
     def find_first_naked_single(self):
-        """Return First Naked Single Cell if found
-        """
+        """Return First Naked Single Cell if found."""
         for cell in self.scan_empty_cells():
             if len(cell.markup.value) == 1:
                 return cell

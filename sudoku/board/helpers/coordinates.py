@@ -12,8 +12,8 @@ class Coordinates:
      - column
     of a Sudoku Cell
     Both line and colum can have values from 1 to 9 (not 0 to 8)
-    Can keep track of a LINE coordinate or a COLUMN coordinate
-    Can give information about the BLOCK in which the Cell is contained
+    Can keep track of a Line coordinate or a Column coordinate
+    Can give information about the Block in which the Cell is contained
     Coordinates has a line and column properties wich has a bytearray as a placeholder
     Can be initialized with integers or a None
     Can be populated after initialization with a None from integers
